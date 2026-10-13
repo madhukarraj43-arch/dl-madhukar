@@ -1,0 +1,369 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    background-color: #000000;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #000000;
+    color: #f5f5f7;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", "Inter", sans-serif;
+    letter-spacing: -0.016em;
+    line-height: 1.47059;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* 60Hz GPU Compositing & Native Touch Feel */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+
+  /* Minimalist Apple Store Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.42);
+  }
+}
+
+@layer utilities {
+  /* ─────────────────────────────────────────────────────────────
+     iOS 26 LIQUID GLASS PANELS (PURE MONOCHROME BLACK & WHITE)
+  ───────────────────────────────────────────────────────────── */
+  .liquid-glass-panel {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.085) 0%,
+      rgba(255, 255, 255, 0.028) 50%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      0 24px 64px -16px rgba(0, 0, 0, 0.9),
+      inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.32),
+      inset 0 -1px 1px 0 rgba(255, 255, 255, 0.06);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform, background, border-color, box-shadow;
+    transition:
+      transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      background 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .liquid-glass-panel:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.04) 50%,
+      rgba(255, 255, 255, 0.085) 100%
+    );
+    border-color: rgba(255, 255, 255, 0.28);
+    box-shadow:
+      0 32px 72px -14px rgba(0, 0, 0, 0.96),
+      0 0 40px -12px rgba(255, 255, 255, 0.12),
+      inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.45);
+    transform: translate3d(0, -3px, 0);
+  }
+
+  /* iOS 26 Liquid Glass Text Enclosure / Capsule */
+  .liquid-glass-pill {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.09) 0%,
+      rgba(255, 255, 255, 0.035) 100%
+    );
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+      0 10px 28px -8px rgba(0, 0, 0, 0.7),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.28);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .liquid-glass-pill:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.065) 100%
+    );
+    border-color: rgba(255, 255, 255, 0.34);
+    box-shadow:
+      0 14px 32px -8px rgba(0, 0, 0, 0.85),
+      inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.42);
+    transform: translate3d(0, -1.5px, 0);
+  }
+
+  /* Dedicated iOS 26 Liquid Glass Text Box for Wrapping Every Text Element */
+  .ios26-text-glass {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.065) 0%,
+      rgba(255, 255, 255, 0.025) 100%
+    );
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.24),
+      0 12px 32px -12px rgba(0, 0, 0, 0.75);
+    transform: translate3d(0, 0, 0);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .ios26-text-glass:hover {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.095) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+    border-color: rgba(255, 255, 255, 0.24);
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     APPLE STORE CALLIGRAPHY & OPTICAL TYPOGRAPHY
+  ───────────────────────────────────────────────────────────── */
+  .apple-title-hero {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Inter", sans-serif;
+    font-size: clamp(3rem, 7.2vw, 5.75rem);
+    font-weight: 600;
+    line-height: 1.03;
+    letter-spacing: -0.042em;
+    background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 55%, #86868b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .apple-section-headline {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Inter", sans-serif;
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.06;
+    letter-spacing: -0.036em;
+    background: linear-gradient(180deg, #ffffff 10%, #a1a1a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .apple-text-gradient {
+    background: linear-gradient(180deg, #ffffff 20%, #a1a1a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .apple-text-silver {
+    background: linear-gradient(180deg, #ffffff 0%, #d2d2d7 50%, #86868b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .apple-subtext {
+    color: #86868b;
+    font-weight: 400;
+    letter-spacing: -0.016em;
+    line-height: 1.47059;
+  }
+
+  .apple-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #a1a1a6;
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     APPLE STORE MONOCHROME BUTTONS
+  ───────────────────────────────────────────────────────────── */
+  .apple-btn-primary {
+    background: #ffffff;
+    color: #000000;
+    font-weight: 500;
+    border-radius: 9999px;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.875rem;
+    letter-spacing: -0.015em;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow:
+      0 6px 24px rgba(255, 255, 255, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+  }
+
+  .apple-btn-primary:hover {
+    background: #e8e8ed;
+    transform: translate3d(0, -1px, 0) scale(1.02);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.28);
+  }
+
+  .apple-btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 9999px;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.875rem;
+    letter-spacing: -0.015em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.22);
+    transform: translate3d(0, 0, 0);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .apple-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translate3d(0, -1px, 0) scale(1.02);
+  }
+
+  /* Specular Monochrome Shimmer */
+  .liquid-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 250%;
+    height: 100%;
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.02) 43%,
+      rgba(255, 255, 255, 0.16) 50%,
+      rgba(255, 255, 255, 0.02) 57%,
+      transparent 100%
+    );
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .liquid-shimmer:hover::after {
+    transform: translate3d(85%, 0, 0);
+  }
+
+  /* 60Hz Smooth Section Shift Reveal */
+  .apple-section-shift {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0) scale(0.99);
+    will-change: transform, opacity;
+    transition:
+      opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .apple-section-shift.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   60Hz PURE MONOCHROME LIQUID GLASS KEYFRAMES
+───────────────────────────────────────────────────────────── */
+@keyframes fluidBlobMono1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  33% {
+    transform: translate3d(36px, -28px, 0) scale(1.07) rotate(6deg);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  66% {
+    transform: translate3d(-24px, 18px, 0) scale(0.96) rotate(-5deg);
+    border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+  }
+}
+
+@keyframes fluidBlobMono2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    border-radius: 50% 50% 40% 60% / 55% 45% 60% 40%;
+  }
+  50% {
+    transform: translate3d(-40px, 30px, 0) scale(1.1) rotate(-10deg);
+    border-radius: 35% 65% 60% 40% / 60% 35% 65% 40%;
+  }
+}
+
+@keyframes liquidOrbMorph {
+  0%, 100% {
+    border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 45% 55% 62% 38% / 52% 60% 40% 48%;
+    transform: translate3d(6px, -8px, 0) rotate(4deg) scale(1.03);
+  }
+  50% {
+    border-radius: 38% 62% 44% 56% / 42% 38% 62% 58%;
+    transform: translate3d(-5px, 6px, 0) rotate(-3deg) scale(0.98);
+  }
+  75% {
+    border-radius: 55% 45% 38% 62% / 48% 58% 42% 52%;
+    transform: translate3d(5px, 5px, 0) rotate(2deg) scale(1.02);
+  }
+}
+
+@keyframes liquidRipple {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(0.93);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate3d(0, 0, 0) scale(1.06);
+    opacity: 0.18;
+  }
+}
+
+.animate-liquid-mono-1 {
+  animation: fluidBlobMono1 14s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+
+.animate-liquid-mono-2 {
+  animation: fluidBlobMono2 18s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+
+.animate-liquid-orb {
+  animation: liquidOrbMorph 9s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+
+.animate-liquid-ripple {
+  animation: liquidRipple 5.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
